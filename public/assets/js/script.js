@@ -10,7 +10,7 @@ function getHeaders() {
 buttonPress = btn => {
   let regex = /(<([^>]+)>)/ig;
   let command = btn.innerHTML.replace(regex, " ");
-  let $message = { command: '!'+command };
+  let $message = { command: command };
   document.getElementById("sentNotification").removeAttribute("hidden");
   btn.disabled = true;
   fetch("/sendmessage", {
