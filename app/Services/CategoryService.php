@@ -15,8 +15,13 @@ class CategoryService {
         $this->buttons_model = $buttons_model;
     }
 
-    public function getList() {
-        return $this->model->all();
+    public function getList($onlyActive = true) {
+        if($onlyActive == true){
+            $cats = $this->model->where('active', 1)->get();
+        } else {
+            $cats = $this->model->all();
+        }
+        return $cats;
     }
 
     public function getSingleById($id) {
@@ -44,6 +49,13 @@ class CategoryService {
         $css = $this->fill_css($category->dashboard_css, $data);
 
         $category->dashboard_css()->save($css);
+    }
+
+    public function toggleShow($id) {
+        $category = $this->getSingleById($id);
+
+        $category->active = !$category->active;
+        $category->save();
     }
 
     private function fill_css($css, $data) {

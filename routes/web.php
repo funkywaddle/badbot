@@ -35,6 +35,7 @@ Route::group(['middleware'=>'web'], function($app){
        Route::get('/currencies/{currency}/remove', 'Admin\CurrenciesController@remove')->name('currencies.remove');
        Route::resource('categories', 'Admin\CategoriesController');
        Route::get('/categories/{category}/remove', 'Admin\CategoriesController@remove')->name('categories.remove');
+       Route::get('/categories/{category}/toggleShow', 'Admin\CategoriesController@toggleShow')->name('categories.toggleShow');
        Route::resource('configs', 'Admin\ConfigsController')->except(['destroy', 'create', 'store']);
        Route::resource('buttons', 'Admin\ButtonsController');
        Route::get('/buttons/{button}/remove', 'Admin\ButtonsController@remove')->name('buttons.remove');

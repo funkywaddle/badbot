@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('assets/js/admin.js') }}" defer></script>
+    <script src="{{ asset('assets/js/adminScript.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

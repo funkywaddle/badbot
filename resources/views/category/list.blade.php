@@ -11,6 +11,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Code</th>
                 <th scope="col">Actions</th>
+                <th scope="col">Show</th>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +21,13 @@
                 <td>{{ $category->name }}</td>
                 <td>{{ $category->code }}</td>
                 <td><x-row-actions :item="$category" path="categories" attrib="category" /></td>
+                <td>
+                @if($category->active == 1)
+                    <a data-id="{{$category->id}}" class="btn btn-success" onclick="buttonPress(this);">Shown</a>
+                @else
+                    <a data-id="{{$category->id}}" class="btn btn-danger" onclick="buttonPress(this);">Not Shown</a>
+                @endif
+                </td>
             </tr>
             @endforeach
         </tbody>

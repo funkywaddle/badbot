@@ -17,7 +17,7 @@ class CategoriesController extends Controller {
     }
 
     public function index(Request $request) {
-        $categories = $this->service->getList();
+        $categories = $this->service->getList(false);
         return view('category.list', ['categories'=>$categories]);
     }
 
@@ -59,5 +59,9 @@ class CategoriesController extends Controller {
 
             return redirect(route('categories.remove', ['category'=>$category->id]))->with($flash);
         }
+    }
+
+    public function toggleShow(Request $request, $id) {
+        $this->service->toggleShow($id);
     }
 }
