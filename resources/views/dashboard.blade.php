@@ -40,13 +40,13 @@
 @endsection
 
 @section('add_js')
-    <script type="text/javascript">
-        sendCommand('collectpoints');
-        sendCommand('collectpointssub');
+{{--    <script type="text/javascript">--}}
+{{--        sendCommand('collectpoints');--}}
+{{--        sendCommand('collectpointssub');--}}
 
-        setTimeout(() => {
-            sendCommand('collectpoints');
-            sendCommand('collectpointssub');
-        }, 1000*60*20);
-    </script>
+{{--        setTimeout(() => {--}}
+{{--            sendCommand('collectpoints');--}}
+{{--            sendCommand('collectpointssub');--}}
+{{--        }, 1000*60*20);--}}
+{{--    </script>--}}
 @endsection
