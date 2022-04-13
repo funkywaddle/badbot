@@ -21,3 +21,10 @@ buttonPress = btn => {
         btn.classList.replace(rmcls, cls);
     });
 };
+
+function update_checkbox_value(txtbox, chkbox_id) {
+    let value = txtbox.value;
+    let chkbox = document.getElementById(chkbox_id);
+    console.log(chkbox);
+    chkbox.value = value;
+}

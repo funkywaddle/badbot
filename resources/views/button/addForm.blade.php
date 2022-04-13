@@ -42,6 +42,7 @@
         <x-directioncheckboxes :options="$options" />
         <x-specialcheckboxes :options="$options" />
         <x-mousecheckboxes :options="$options" />
+        <x-customchoicescheckboxes :options="$custom_options" />
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 @endsection
