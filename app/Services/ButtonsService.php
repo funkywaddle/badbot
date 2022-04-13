@@ -24,7 +24,7 @@ class ButtonsService {
 
     public function getAll() {
         $buttons = $this->model->with(['category', 'currency', 'options'])->get();
-        $categories = $this->category_model->all();
+        $categories = $this->category_model->where('active', 1)->get();
         return ['buttons'=>$buttons, 'categories'=>$categories];
     }
 
