@@ -26,7 +26,13 @@ class ButtonsController extends Controller {
     public function create(Request $request, CategoryService $categoryService, CurrencyService $currencyService) {
         $categories = $categoryService->getList();
         $currencies = $currencyService->getList();
-        return view('button.addForm', ['categories'=>$categories, 'currencies'=>$currencies, 'options'=>[]]);
+        $data = [
+            'categories'=>$categories,
+            'currencies'=>$currencies,
+            'options'=>$this->service->getEmptyOptionsArray(),
+            'custom_options'=> $this->service->getCustomOptions(0)
+        ];
+        return view('button.addForm', $data);
     }
 
     public function store(Request $request) {
@@ -38,12 +44,15 @@ class ButtonsController extends Controller {
         $categories = $categoryService->getList();
         $currencies = $currencyService->getList();
         $button = $this->service->getSingleById($id);
+        $options = (array) $button->options->toArray();
+        $custom_options = $this->service->getCustomOptions($id);
 
         $data = [
             'button'=>$button,
             'categories'=>$categories,
             'currencies'=>$currencies,
-            'options'=>(array) $button->options->toArray()
+            'options'=>$options,
+            'custom_options'=>$custom_options
         ];
         return view('button.editForm', $data);
     }
